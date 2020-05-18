@@ -117,7 +117,7 @@ public class Add_delivery_address_fragment extends Fragment implements View.OnCl
 
         androidx.fragment.app.FragmentManager fragmentManager = ((MainActivity) getActivity()).getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.map_fragment , new Map_Fragment(scroll_view)).commit();
+        fragmentTransaction.replace(R.id.map_fragment , new Map_Fragment_Two()).commit();
 
         String getsocity_name = sessionManagement.getUserDetails().get(BaseURL.KEY_SOCITY_NAME);
 

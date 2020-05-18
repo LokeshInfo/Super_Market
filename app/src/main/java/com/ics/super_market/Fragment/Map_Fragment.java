@@ -11,6 +11,7 @@ import android.location.Address;
 import android.location.Criteria;
 import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,6 +28,9 @@ import android.view.ViewGroup;
 import android.widget.ScrollView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,19 +46,14 @@ import java.util.List;
 import java.util.Locale;
 
 
-public  class Map_Fragment extends Fragment
+public  class Map_Fragment extends Fragment  implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener
 {
     SupportMapFragment mMap;
 
     private GoogleMap googleMap;
     private Location locationC;
-    private ScrollView scrollView;
+    GoogleApiClient mGoogleApiClient;
     private Boolean current_selected = true;
-
-    public Map_Fragment(ScrollView scrll) {
-        this.scrollView = scrll;
-    }
-
 
     @Nullable
     @Override
@@ -227,6 +226,40 @@ public  class Map_Fragment extends Fragment
     }
 
 
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
+    }
 }
   /*  private void enableMyLocationIfPermitted() {
         if (ContextCompat.checkSelfPermission(getActivity(),
