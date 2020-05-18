@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delivery time"
+        android:padding="@dimen/space_10"
+        android:background="#e5e5e5"
+        android:textStyle="bold"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_times"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.77dp"
+        android:background="@android:color/black"
+        android:layout_marginTop="15dp"
+        />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/delivery_time_over"
+        android:layout_marginTop="7dp"
+        android:padding="@dimen/space_10"
+        android:textColor="@android:color/black"
+        android:textSize="9pt"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:lineSpacingExtra="6dp"
+        android:visibility="gone"
+        />
+
+
+</LinearLayout>
