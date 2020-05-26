@@ -261,7 +261,6 @@
                                 android:text="Online Payment"
                                 android:padding="@dimen/space_5"
                                 android:textStyle="bold"
-                                android:visibility="gone"
                                 />
 
                             <RadioButton
@@ -336,8 +335,8 @@
                 android:textSize="13dp" />
 
             <Button
-                android:layout_weight="0.5"
                 android:id="@+id/buttonContinue"
+                android:layout_weight="0.5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/xml_button"

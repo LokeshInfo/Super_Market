@@ -5,6 +5,11 @@
 
         <!--<string name="app_name1">axomiyagohona App</string>-->
 
+
+    <string name="razorpay_key_id">rzp_live_xmzozaS7Hga7ok</string>
+    <string name="razorpay_key_secret">i2bkNV6eUhIV6mnsP9NpPAoV</string>
+
+
     <string name="currency">INR\u0020</string>
     <string name="title_activity_main">Aryan Store</string>
 

@@ -20,6 +20,8 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.ics.super_market.BuildConfig;
 import androidx.viewpager.widget.ViewPager;
+
+import android.os.StrictMode;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -46,12 +48,13 @@ import com.ics.super_market.Fragment.Support_info_fragment;
 import com.ics.super_market.Fragment.Edit_profile_fragment;
 import com.ics.super_market.Fragment.My_order_fragment;
 import com.ics.super_market.Fragment.LocationFragment;
+import com.razorpay.PaymentResultListener;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        ConnectivityReceiver.ConnectivityReceiverListener {
+        ConnectivityReceiver.ConnectivityReceiverListener , PaymentResultListener {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -70,6 +73,10 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -631,5 +638,18 @@ public class MainActivity extends AppCompatActivity
             //txtRegId.setText("Firebase Reg Id is not received yet!");
 
         }
+    }
+
+    @Override
+    public void onPaymentSuccess(String s) {
+        Intent in = new Intent("Pay_Razor");
+        in.putExtra("payment",true);
+        in.putExtra("t_id",s);
+        LocalBroadcastManager.getInstance(MainActivity.this).sendBroadcast(in);
+    }
+
+    @Override
+    public void onPaymentError(int i, String s) {
+        Toast.makeText(MainActivity.this, "Payment Cancelled...", Toast.LENGTH_SHORT).show();
     }
 }

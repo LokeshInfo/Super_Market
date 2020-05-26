@@ -40,6 +40,13 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
+
+        <!-- RAZOR PAY API KEY -->
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="@string/razorpay_key_id"
+            />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
